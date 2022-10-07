@@ -1,0 +1,8 @@
+{
+  "AppName": "Hello Top Down Shooter",
+  "WinWidth": 1280,
+  "WinHeight": 720,
+  "FullScreen": false,
+  "SoundPath": "../Assets/Sounds",
+  "TexturePath": "../Assets/Images"
+}

@@ -1,0 +1,8 @@
+{
+  "AppName": "X Tetris",
+  "WinWidth": 320,
+  "WinHeight": 480,
+  "FullScreen": false,
+  "SoundPath": "../Assets/Sounds",
+  "TexturePath": "./Images"
+}

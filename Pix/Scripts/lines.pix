@@ -1,0 +1,24 @@
+SetResolution(50, 50, 10)
+
+BeginDraw(line)
+
+Vertex(25, 25, 1, 0, 0)
+Vertex(40, 20)
+
+Vertex(25, 25, 0, 1, 0)
+Vertex(20, 5)
+
+
+Vertex(25, 25, 0, 0, 1)
+Vertex(10, 34)
+
+
+Vertex(25, 25, 0, 1, 1)
+Vertex(35, 43)
+
+EndDraw()
+
+
+
+
+

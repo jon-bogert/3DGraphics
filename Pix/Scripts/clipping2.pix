@@ -1,0 +1,42 @@
+SetResolution(500, 500, 1)
+
+SetViewport(100, 100, 300, 300)
+SetClipping(true)
+ShowViewport(true)
+
+BeginDraw(point)
+Vertex(100, 100, 1, 0, 0)
+Vertex(400, 400, 1, 0, 0)
+
+Vertex(80, 170, 0, 1, 0)
+Vertex(90, 160, 0, 1, 0)
+Vertex(100, 150, 0, 1, 0)
+Vertex(110, 140, 0, 1, 0)
+Vertex(120, 130, 0, 1, 0)
+Vertex(130, 120, 0, 1, 0)
+Vertex(140, 110, 0, 1, 0)
+Vertex(150, 100, 0, 1, 0)
+Vertex(160, 90, 0, 1, 0)
+Vertex(170, 80, 0, 1, 0)
+EndDraw()
+
+BeginDraw(line)
+Vertex(50, 200, 1, 0, 0)
+Vertex(230, 250, 0, 0, 1)
+
+Vertex(150, 50, 1, 1, 0)
+Vertex(450, 200, 1, 0, 1)
+
+Vertex(450, 270, 0, 1, 1)
+Vertex(320, 450, 1, 1, 0)
+EndDraw()
+
+BeginDraw(triangle)
+Vertex(150, 250, 1, 1, 0)
+Vertex(250, 430, 0, 1, 1)
+Vertex(50, 430, 1, 0, 1)
+
+Vertex(300, 200, 1, 0, 0)
+Vertex(480, 250, 0, 1, 0)
+Vertex(350, 330, 0, 0, 1)
+EndDraw()
