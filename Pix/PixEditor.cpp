@@ -7,8 +7,6 @@
 
 #include "CommandDictionary.h"
 #include "Graphics.h"
-#include "ModelCache.h"
-#include "TextureCache.h"
 #include "VariableCache.h"
 #include "Viewport.h"
 #include <ImGui/Inc/imgui.h>
@@ -551,8 +549,6 @@ void PixEditor::Run(TextEditor* textEditor)
 	if (textEditor)
 	{
 		Save();
-		ModelCache::Get()->Clear();
-		TextureCache::Get()->Clear();
 		VariableCache::Get()->Clear();
 		mScriptParser.ParseScript(textEditor->GetText());
 	}

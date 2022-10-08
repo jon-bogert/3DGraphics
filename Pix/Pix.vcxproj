@@ -152,34 +152,18 @@
     <None Include="xconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Clipper.cpp" />
     <ClCompile Include="CmdDrawPixel.cpp" />
     <ClCompile Include="CmdSetResolution.cpp" />
     <ClCompile Include="CmdVarBool.cpp" />
     <ClCompile Include="CmdVarFloat.cpp" />
     <ClCompile Include="CommandDictionary.cpp" />
     <ClCompile Include="DepthBuffer.cpp" />
-    <ClCompile Include="DirectionalLight.cpp" />
     <ClCompile Include="Graphics.cpp" />
-    <ClCompile Include="Light.cpp" />
-    <ClCompile Include="LightManager.cpp" />
     <ClCompile Include="MaterialManager.cpp" />
-    <ClCompile Include="MathHelper.cpp" />
-    <ClCompile Include="MathTest.cpp" />
-    <ClCompile Include="MatrixStack.cpp" />
-    <ClCompile Include="Model.cpp" />
-    <ClCompile Include="ModelCache.cpp" />
     <ClCompile Include="PixEditor.cpp" />
-    <ClCompile Include="PointLight.cpp" />
-    <ClCompile Include="PrimitiveManager.cpp" />
     <ClCompile Include="Rasterizer.cpp" />
-    <ClCompile Include="RayTracer.cpp" />
     <ClCompile Include="ScriptParser.cpp" />
-    <ClCompile Include="SpotLight.cpp" />
     <ClCompile Include="TextEditor.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureCache.cpp" />
     <ClCompile Include="VariableCache.cpp" />
     <ClCompile Include="Viewport.cpp" />
     <ClCompile Include="WinMain.cpp" />
@@ -190,8 +174,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Clipper.h" />
     <ClInclude Include="CmdDrawPixel.h" />
     <ClInclude Include="CmdSetResolution.h" />
     <ClInclude Include="CmdVarBool.h" />
@@ -199,33 +181,13 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandDictionary.h" />
     <ClInclude Include="DepthBuffer.h" />
-    <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="Graphics.h" />
-    <ClInclude Include="Light.h" />
-    <ClInclude Include="LightManager.h" />
     <ClInclude Include="MaterialManager.h" />
-    <ClInclude Include="MathHelper.h" />
-    <ClInclude Include="MathTest.h" />
-    <ClInclude Include="Matrix4.h" />
-    <ClInclude Include="MatrixStack.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="ModelCache.h" />
     <ClInclude Include="PixEditor.h" />
-    <ClInclude Include="PointLight.h" />
-    <ClInclude Include="PrimitiveManager.h" />
     <ClInclude Include="Rasterizer.h" />
-    <ClInclude Include="Ray.h" />
-    <ClInclude Include="RayTracer.h" />
     <ClInclude Include="ScriptParser.h" />
-    <ClInclude Include="Sphere.h" />
-    <ClInclude Include="SpotLight.h" />
     <ClInclude Include="TextEditor.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureCache.h" />
     <ClInclude Include="VariableCache.h" />
-    <ClInclude Include="Vector2.h" />
-    <ClInclude Include="Vector3.h" />
-    <ClInclude Include="Vertex.h" />
     <ClInclude Include="Viewport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,14 +4,9 @@
 //====================================================================================================
 
 #include "PixEditor.h"
-#include "MathTest.h"
 
 int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-	// Run tests
-	TestVector3();
-	TestMatrix4();
-
 	// Start Pix Editor
 	PixEditor editor;
 
