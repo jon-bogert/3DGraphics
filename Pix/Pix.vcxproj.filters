@@ -36,9 +36,6 @@
     <ClCompile Include="PrimitiveManager.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CmdBeginDraw.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
     <ClCompile Include="Clipper.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
@@ -145,9 +142,6 @@
     </ClInclude>
     <ClInclude Include="PrimitiveManager.h">
       <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="CmdBeginDraw.h">
-      <Filter>Commands</Filter>
     </ClInclude>
     <ClInclude Include="Clipper.h">
       <Filter>Graphics</Filter>

@@ -1,6 +1,5 @@
 #include "CommandDictionary.h"
 
-#include "CmdBeginDraw.h"
 #include "CmdDrawPixel.h"
 #include "CmdSetResolution.h"
 #include "CmdVarBool.h"
