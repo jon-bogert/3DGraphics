@@ -2,32 +2,9 @@
 
 #include "CmdBeginDraw.h"
 #include "CmdDrawPixel.h"
-#include "CmdEnableDepth.h"
-#include "CmdEndDraw.h"
-#include "CmdLights.h"
-#include "CmdModel.h"
-#include "CmdPopMatrix.h"
-#include "CmdPushRotationX.h"
-#include "CmdPushRotationY.h"
-#include "CmdPushRotationZ.h"
-#include "CmdPushScaling.h"
-#include "CmdPushTranslation.h"
-#include "CmdRayTracer.h"
-#include "CmdSetAddressMode.h"
-#include "CmdSetCameraDirection.h"
-#include "CmdSetCameraPosition.h"
-#include "CmdSetClipping.h"
-#include "CmdSetColor.h"
-#include "CmdSetCorrectUV.h"
-#include "CmdSetCullMode.h"
-#include "CmdSetFillMode.h"
 #include "CmdSetResolution.h"
-#include "CmdSetTexture.h"
-#include "CmdSetViewport.h"
-#include "CmdShowViewport.h"
 #include "CmdVarBool.h"
 #include "CmdVarFloat.h"
-#include "CmdVertex.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -46,56 +23,8 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdVarBool>();
 	RegisterCommand<CmdVarFloat>();
 
-	// Camera commands
-	RegisterCommand<CmdSetCameraDirection>();
-	RegisterCommand<CmdSetCameraPosition>();
-
-	// Depth buffer commands
-	RegisterCommand<CmdEnableDepth>();
-
-	// Light commands
-	RegisterCommand<CmdSetLightAmbient>();
-	RegisterCommand<CmdSetLightDiffuse>();
-	RegisterCommand<CmdSetLightSpecular>();
-	RegisterCommand<CmdAddDirectionalLight>();
-	RegisterCommand<CmdAddPointLight>();
-	RegisterCommand<CmdAddSpotLight>();
-
-	// Matrix commands
-	RegisterCommand<CmdPopMatrix>();
-	RegisterCommand<CmdPushRotationX>();
-	RegisterCommand<CmdPushRotationY>();
-	RegisterCommand<CmdPushRotationZ>();
-	RegisterCommand<CmdPushScaling>();
-	RegisterCommand<CmdPushTranslation>();
-
-	// Primitive commands
-	RegisterCommand<CmdSetCullMode>();
-	RegisterCommand<CmdBeginDraw>();
-	RegisterCommand<CmdEndDraw>();
-	RegisterCommand<CmdVertex>();
-	RegisterCommand<CmdModel>();
-
 	// Rasterization commands
-	RegisterCommand<CmdSetColor>();
-	RegisterCommand<CmdSetFillMode>();
 	RegisterCommand<CmdDrawPixel>();
-
-	// Texture commands
-	RegisterCommand<CmdSetAddressMode>();
-	RegisterCommand<CmdSetCorrectUV>();
-	RegisterCommand<CmdSetTexture>();
-
-	// Viewport commands
-	RegisterCommand<CmdSetClipping>();
-	RegisterCommand<CmdSetViewport>();
-	RegisterCommand<CmdShowViewport>();
-
-	// Ray Tracing commands
-	RegisterCommand<CmdBeginRayTracing>();
-	RegisterCommand<CmdEndRayTracing>();
-	RegisterCommand<CmdRTSphere>();
-	RegisterCommand<CmdRTLight>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()
