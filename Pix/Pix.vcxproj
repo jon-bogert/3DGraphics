@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CmdDrawPixel.cpp" />
+    <ClCompile Include="CmdSetColor.cpp" />
     <ClCompile Include="CmdSetResolution.cpp" />
     <ClCompile Include="CmdVarBool.cpp" />
     <ClCompile Include="CmdVarFloat.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="DepthBuffer.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="MaterialManager.cpp" />
+    <ClCompile Include="MathHelper.cpp" />
     <ClCompile Include="PixEditor.cpp" />
     <ClCompile Include="Rasterizer.cpp" />
     <ClCompile Include="ScriptParser.cpp" />
@@ -175,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmdDrawPixel.h" />
+    <ClInclude Include="CmdSetColor.h" />
     <ClInclude Include="CmdSetResolution.h" />
     <ClInclude Include="CmdVarBool.h" />
     <ClInclude Include="CmdVarFloat.h" />
@@ -183,11 +186,14 @@
     <ClInclude Include="DepthBuffer.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="MaterialManager.h" />
+    <ClInclude Include="MathHelper.h" />
     <ClInclude Include="PixEditor.h" />
     <ClInclude Include="Rasterizer.h" />
     <ClInclude Include="ScriptParser.h" />
     <ClInclude Include="TextEditor.h" />
     <ClInclude Include="VariableCache.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Vector3.h" />
     <ClInclude Include="Viewport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
