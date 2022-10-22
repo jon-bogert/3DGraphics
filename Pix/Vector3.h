@@ -40,4 +40,9 @@ struct Vector3
 		}
 		return { x / c, y / c, z / c };
 	}
+
+	bool operator==(const Vector3& other)
+	{
+		return (this->x == other.x && this->y == other.y && this->z == other.z);
+	}
 };
