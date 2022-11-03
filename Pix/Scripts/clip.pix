@@ -1,0 +1,14 @@
+SetResolution(25,25,25,true)
+SetViewport(5,5,10,5)
+ShowViewport(true)
+SetClipping(true)
+
+BeginDraw(point)
+Vertex(1,1)
+Vertex(15,5)
+Vertex(8,8)
+Vertex(17,8)
+EndDraw()
+
+
+
