@@ -203,6 +203,7 @@
     <ClInclude Include="CommandDictionary.h" />
     <ClInclude Include="DepthBuffer.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Matrix4.h" />
     <ClInclude Include="MaterialManager.h" />
     <ClInclude Include="MathHelper.h" />
     <ClInclude Include="PixEditor.h" />

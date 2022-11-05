@@ -2,6 +2,7 @@
 
 #include "Vector2.h"
 #include "Vector3.h"
+#include "Matrix4.h"
 
 struct Vector2;
 struct Vector3;
@@ -18,4 +19,11 @@ public:
 	static float Dot(const Vector2& a, const Vector2& b);
 	static float Dot(const Vector3& a, const Vector3& b);
 	static Vector3 Cross(const Vector3& a, const Vector3& b);
+
+	static Vector3 TransformCoord(Vector3 v, Matrix4 m);	// assume w = 1
+	Vector3 TransformNormal(Vector3 v, Matrix4 m);			// assume w = 0
+	static float Determinant(Matrix4 m);
+	static Matrix4 Adjoint(Matrix4 m);
+	static Matrix4 Transpose(Matrix4 m);
+	static Matrix4 Inverse(Matrix4 m);
 };
