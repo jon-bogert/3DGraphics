@@ -1,3 +1,7 @@
+#include "Camera.h"
+#include "Camera.h"
+#include "Camera.h"
+#include "Camera.h"
 //====================================================================================================
 // Filename:	Camera.cpp
 // Created by:	Peter Chan

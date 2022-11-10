@@ -12,13 +12,15 @@ class PrimativeManager
 	Topology _topology = Topology::Triangle;
 	bool _drawBegin = false;
 
+	bool _applyTransform = false;
+
 	PrimativeManager() {}
 
 public:
 	~PrimativeManager() {}
 	static PrimativeManager* Get();
 
-	bool BeginDraw(Topology topology);
+	bool BeginDraw(Topology topology, bool applyTransform = false);
 	void AddVertex(Vertex vertex);
 	bool EndDraw();
 };

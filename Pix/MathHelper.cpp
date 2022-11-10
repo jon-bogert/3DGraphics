@@ -3,6 +3,7 @@
 #include "Vector3.h"
 #include <math.h>
 
+#define PI 3.14169f
 
 float MathHelper::MagnitudeSquared(const Vector2& v)
 {
@@ -49,19 +50,21 @@ Vector3 MathHelper::Cross(const Vector3& a, const Vector3& b)
 
 Vector3 MathHelper::TransformCoord(Vector3 v, Matrix4 m)
 {
+	const float w = ((v.x * m._14) + (v.y * m._24) + (v.z * m._34) + m._44);
+	const float invW = (w == 0.0f) ? 1.f : 1 / w;
 	return {
-		(m._11 * v.x) + (m._12 * v.y) + (m._13 * v.z) + m._14,
-		(m._21 * v.x) + (m._22 * v.y) + (m._23 * v.z) + m._24,
-		(m._31 * v.x) + (m._32 * v.y) + (m._33 * v.z) + m._34
+		((m._11 * v.x) + (m._21 * v.y) + (m._31 * v.z) + m._41) * invW,
+		((m._12 * v.x) + (m._22 * v.y) + (m._32 * v.z) + m._42) * invW,
+		((m._13 * v.x) + (m._23 * v.y) + (m._33 * v.z) + m._43) * invW
 	};
 }
 
 Vector3 MathHelper::TransformNormal(Vector3 v, Matrix4 m)
 {
 	return {
-		(m._11 * v.x) + (m._12 * v.y) + (m._13 * v.z),
-		(m._21 * v.x) + (m._22 * v.y) + (m._23 * v.z),
-		(m._31 * v.x) + (m._32 * v.y) + (m._33 * v.z),
+		(m._11 * v.x) + (m._21 * v.y) + (m._31 * v.z),
+		(m._12 * v.x) + (m._22 * v.y) + (m._32 * v.z),
+		(m._13 * v.x) + (m._23 * v.y) + (m._33 * v.z)
 	};
 }
 
@@ -115,4 +118,14 @@ Matrix4 MathHelper::Inverse(Matrix4 m)
 	float det = Determinant(m);
 	float iDet = 1.0f / det;
 	return Adjoint(m) * iDet;
+}
+
+float MathHelper::Deg2Rad(float deg)
+{
+	return (deg * (PI/180.f));
+}
+
+float MathHelper::Rad2Deg(float rad)
+{
+	return (rad * (180.f/PI));
 }

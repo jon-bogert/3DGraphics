@@ -63,25 +63,29 @@ struct Matrix4
 	static Matrix4 RotationX(float rad)
 	{
 		return {
-			cosf(rad),	-sinf(rad),	0.f,
-			sinf(rad),	cosf(rad),	0.f,
-			0.f,		0.f,		1.f
+
+			1.f,		0.f,		0.f,		0.f,
+			0.f,		cosf(rad),	sinf(rad),	0.f,
+			0.f,		-sinf(rad),	cosf(rad),	0.f,
+			0.f,		0.f,		0.f,		1.f
 		};
 	}
 	static Matrix4 RotationY(float rad)
 	{
 		return {
-			cosf(rad),	0.f,		sinf(rad),
-			0.f,		1.f,		0.f,
-			-sinf(rad),	0.f,		cosf(rad),
+			cosf(rad),	0.f,		-sinf(rad),	0.f,
+			0.f,		1.f,		0.f,		0.f,
+			sinf(rad),	0.f,		cosf(rad),	0.f,
+			0.f,		0.f,		0.f,		1.f
 		};
 	}
 	static Matrix4 RotationZ(float rad)
 	{
 		return {
-			1.f,		0.f,		0.f,
-			0.f,		cosf(rad),	-sinf(rad),
-			0.f,		sinf(rad),	cosf(rad),
+			cosf(rad),	sinf(rad),	0.f,		0.f,
+			-sinf(rad),	cosf(rad),	0.f,		0.f,
+			0.f,		0.f,		1.f,		0.f,
+			0.f,		0.f,		0.f,		1.f
 		};
 	}
 	static Matrix4 Scaling(float s)
@@ -114,19 +118,19 @@ struct Matrix4
 	static Matrix4 Translation(Vector3 d)
 	{
 		return{
-			1.f,	0.f,	0.f,	d.x,
-			0.f,	1.f,	0.f,	d.y,
-			0.f,	0.f,	1.f,	d.z,
-			0.f,	0.f,	0.f,	1.f
+			1.f,	0.f,	0.f,	0.f,
+			0.f,	1.f,	0.f,	0.f,
+			0.f,	0.f,	1.f,	0.f,
+			d.x,	d.y,	d.z,	1.f
 		};
 	}
 	static Matrix4 Translation(float dx, float dy, float dz)
 	{
 		return{
-			1.f,	0.f,	0.f,	dx,
-			0.f,	1.f,	0.f,	dy,
-			0.f,	0.f,	1.f,	dz,
-			0.f,	0.f,	0.f,	1.f
+			1.f,	0.f,	0.f,	0.f,
+			0.f,	1.f,	0.f,	0.f,
+			0.f,	0.f,	1.f,	0.f,
+			dx,		dy,		dz,		1.f
 		};
 	}
 };

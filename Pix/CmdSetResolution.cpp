@@ -3,8 +3,8 @@
 #include "DepthBuffer.h"
 #include <XEngine.h>
 
-float gResolutionX = 0.0f;
-float gResolutionY = 0.0f;
+extern float gResolutionX = 0.0f;
+extern float gResolutionY = 0.0f;
 
 bool CmdSetResolution::Execute(const std::vector<std::string>& params)
 {
