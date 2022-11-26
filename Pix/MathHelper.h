@@ -29,4 +29,8 @@ public:
 
 	static float Deg2Rad(float deg);
 	static float Rad2Deg(float rad);
+
+	static bool CheckEquals(float a, float b);
+	static bool CheckEquals(const Vector3& a, const Vector3& b);
+	static bool CheckEquals(const Matrix4& a, const Matrix4& b);
 };

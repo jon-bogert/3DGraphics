@@ -20,6 +20,9 @@
 #include "CmdPopMatrix.h"
 #include "CmdSetCameraPosition.h"
 #include "CmdSetCameraDirection.h"
+#include "CmdSetCullMode.h"
+#include "CmdEnableDepth.h"
+#include "CmdLights.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -45,6 +48,13 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdPopMatrix>();
 	RegisterCommand<CmdSetCameraPosition>();
 	RegisterCommand<CmdSetCameraDirection>();
+	RegisterCommand<CmdSetCullMode>();
+	RegisterCommand<CmdEnableDepth>();
+	RegisterCommand<CmdSetLightAmbient>();
+	RegisterCommand<CmdSetLightDiffuse>();
+	RegisterCommand<CmdSetLightSpecular>();
+	RegisterCommand<CmdAddDirectionalLight>();
+	RegisterCommand<CmdAddPointLight>();
 
 	// Variable commands
 	RegisterCommand<CmdVarBool>();

@@ -10,7 +10,7 @@ DepthBuffer* DepthBuffer::Get()
 
 void DepthBuffer::OnNewFrame()
 {
-	mEnabled = false;
+	//mEnabled = true;
 	for (int i = 0; i < mWidth * mHeight; ++i)
 		mDepthBuffer[i] = 1.0f;
 }

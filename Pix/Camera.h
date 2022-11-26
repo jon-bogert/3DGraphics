@@ -26,5 +26,8 @@ public:
 
 	Matrix4 GetViewMatrix() const;
 	Matrix4 GetProjectionMatrix() const;
+	
+	const Vector3& GetPosition() const { return mPosition; }
+	const Vector3& GetDirection() const { return mDirection; }
 };
 

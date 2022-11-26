@@ -1,5 +1,4 @@
 #include "Rasterizer.h"
-
 #include "DepthBuffer.h"
 
 Rasterizer* Rasterizer::Get()
@@ -30,7 +29,10 @@ void Rasterizer::DrawPoint(int x, int y)
 
 void Rasterizer::DrawPoint(Vertex v)
 {
-	X::DrawPixel((int)v.position.x, (int)v.position.y, v.color);
+	if (DepthBuffer::Get()->CheckDepthBuffer(v.position.x, v.position.y, v.position.z))
+	{
+		X::DrawPixel((int)v.position.x, (int)v.position.y, v.color);
+	}
 }
 
 void Rasterizer::DrawLine(Vertex v1, Vertex v2)

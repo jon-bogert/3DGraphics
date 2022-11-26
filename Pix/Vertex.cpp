@@ -7,7 +7,8 @@ Vector3 Vertex::LerpPosition(Vector3 a, Vector3 b, float t)
     Vector3 lerp;
     lerp.x = static_cast<int>((b.x - a.x) * t + a.x + 0.5f);
     lerp.y = static_cast<int>((b.y - a.y) * t + a.y + 0.5f);
-    lerp.z = static_cast<int>((b.z - a.z) * t + a.z + 0.5f);
+    lerp.z = (b.z - a.z) * t + a.z;
+    //lerp.z = static_cast<int>((b.z - a.z) * t + a.z + 0.5f);
 
     return lerp;
 }

@@ -5,6 +5,8 @@
 #include "MatrixStack.h";
 #include "Camera.h"
 #include "MathHelper.h"
+#include "DirectionalLight.h"
+#include "LightManager.h"
 
 extern float gResolutionX;
 extern float gResolutionY;
@@ -46,21 +48,6 @@ void PrimativeManager::AddVertex(Vertex vertex)
 
 bool PrimativeManager::EndDraw()
 {
-
-	if (_applyTransform)
-	{
-		Matrix4 matWorld = MatrixStack::Get()->GetTransform();
-		Matrix4 matView = Camera::Get()->GetViewMatrix();
-		Matrix4 matProj = Camera::Get()->GetProjectionMatrix();
-		Matrix4 matScreen = GetScreenTransform();
-		Matrix4 matFinal = matWorld * matView * matProj * matScreen;
-		for (auto& v : _vertexBuffer)
-		{
-			auto posScreen = MathHelper::TransformCoord(v.position, matFinal);
-			v.position = posScreen;
-		}
-	}
-
 	switch (_topology)
 	{
 	case Topology::Point:
@@ -78,10 +65,63 @@ bool PrimativeManager::EndDraw()
 		}
 		break;
 	case Topology::Triangle:
+	{
+		Matrix4 matWorld = MatrixStack::Get()->GetTransform();
+		Matrix4 matView = Camera::Get()->GetViewMatrix();
+		Matrix4 matProj = Camera::Get()->GetProjectionMatrix();
+		Matrix4 matScreen = GetScreenTransform();
+		Matrix4 ndcSpace = matView * matProj;
+		Matrix4 matFinal = ndcSpace * matScreen;
+
 		for (int i = 2; i < _vertexBuffer.size(); i += 3)
 		{
-
 			std::vector<Vertex> triangle = { _vertexBuffer[i - 2], _vertexBuffer[i - 1], _vertexBuffer[i] };
+			if (_applyTransform)
+			{
+				//to world
+				for (auto& v : triangle)
+				{
+					auto posWorld = MathHelper::TransformCoord(v.position, matWorld);
+					v.position = posWorld;
+
+					
+				}
+				//get face normal in world
+				Vector3 faceNorm = MathHelper::Cross((triangle[1].position - triangle[0].position),
+					(triangle[2].position - triangle[0].position));
+
+				//apply color
+				for (auto& v : triangle)
+				{
+					v.color *= LightManager::Get()->ComputeLightColor(v.position, faceNorm);
+				}
+				if (mCullMode != CullMode::None)
+				{
+
+					for (auto& v : triangle)
+					{
+						auto posNdc = MathHelper::TransformCoord(v.position, ndcSpace);
+						v.position = posNdc;
+					}
+
+					faceNorm = MathHelper::Cross((triangle[1].position - triangle[0].position),
+						(triangle[2].position - triangle[0].position));
+
+					if (mCullMode == CullMode::Back && faceNorm.z > 0.f)
+					{
+						continue;
+					}
+					else if (mCullMode == CullMode::Front && faceNorm.z < 0.f)
+					{
+						continue;
+					}
+				}
+				for (auto& v : triangle)
+				{
+					auto posScreen = MathHelper::TransformCoord(v.position, matScreen);
+					v.position = posScreen;
+				}
+			}
 			if (Clipper::Get()->ClipTriangle(triangle))
 			{
 				for (int j = 2; j < triangle.size(); ++j)
@@ -91,9 +131,20 @@ bool PrimativeManager::EndDraw()
 			}
 		}
 		break;
+	}
 	default:
 		return false;
 	}
 
 	return true;
+}
+
+void PrimativeManager::SetCullMode(const CullMode cm)
+{
+	mCullMode = cm;
+}
+
+CullMode PrimativeManager::GetCullMode() const
+{
+	return mCullMode;
 }

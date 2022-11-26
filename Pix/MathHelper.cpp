@@ -129,3 +129,22 @@ float MathHelper::Rad2Deg(float rad)
 {
 	return (rad * (180.f/PI));
 }
+
+bool MathHelper::CheckEquals(float a, float b)
+{
+	return fabs(a - b) < 0.001f;
+}
+
+bool MathHelper::CheckEquals(const Vector3& a, const Vector3& b)
+{
+	return fabs(a.x - b.x) < 0.001f && fabs(a.y - b.y) < 0.001f;
+}
+
+bool MathHelper::CheckEquals(const Matrix4& a, const Matrix4& b)
+{
+	return
+		fabs(a._11 - b._11) < 0.001f && fabs(a._12 - b._12) < 0.001f && fabs(a._13 - b._13) < 0.001f && fabs(a._14 - b._14) < 0.001f &&
+		fabs(a._21 - b._21) < 0.001f && fabs(a._22 - b._22) < 0.001f && fabs(a._23 - b._23) < 0.001f && fabs(a._24 - b._24) < 0.001f &&
+		fabs(a._31 - b._31) < 0.001f && fabs(a._32 - b._32) < 0.001f && fabs(a._33 - b._33) < 0.001f && fabs(a._34 - b._34) < 0.001f &&
+		fabs(a._41 - b._41) < 0.001f && fabs(a._42 - b._42) < 0.001f && fabs(a._43 - b._43) < 0.001f && fabs(a._44 - b._44) < 0.001f;
+}

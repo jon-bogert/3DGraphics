@@ -6,6 +6,7 @@
 #include "Clipper.h"
 #include "MatrixStack.h"
 #include "Camera.h"
+#include "LightManager.h"
 
 void Graphics::NewFrame()
 {
@@ -15,4 +16,5 @@ void Graphics::NewFrame()
 	Clipper::Get()->OnNewFrame();
 	MatrixStack::Get()->OnNewFrame();
 	Camera::Get()->OnNewFrame();
+	LightManager::Get()->OnNewFrame();
 }
