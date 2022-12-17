@@ -23,6 +23,8 @@
 #include "CmdSetCullMode.h"
 #include "CmdEnableDepth.h"
 #include "CmdLights.h"
+#include "CmdModel.h"
+#include "CmdSetShadeMode.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -55,6 +57,8 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdSetLightSpecular>();
 	RegisterCommand<CmdAddDirectionalLight>();
 	RegisterCommand<CmdAddPointLight>();
+	RegisterCommand<CmdModel>();
+	RegisterCommand<CmdSetShadeMode>();
 
 	// Variable commands
 	RegisterCommand<CmdVarBool>();

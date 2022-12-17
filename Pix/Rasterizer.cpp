@@ -1,5 +1,6 @@
 #include "Rasterizer.h"
 #include "DepthBuffer.h"
+#include "MathHelper.h"
 
 Rasterizer* Rasterizer::Get()
 {
@@ -65,6 +66,17 @@ void Rasterizer::DrawLine(Vertex v1, Vertex v2)
 
 void Rasterizer::DrawTriangle(Vertex v1, Vertex v2, Vertex v3)
 {
+	if (mShadeMode == ShadeMode::Flat)
+	{
+		v2.color = v1.color;
+		v3.color = v1.color;
+		Vector3 faceNorm = MathHelper::Normalize(MathHelper::Cross((v2.position - v1.position),
+			(v3.position - v1.position)));
+		v1.normal = faceNorm;
+		v2.normal = faceNorm;
+		v3.normal = faceNorm;
+	}
+
 	if (mFillMode == FillMode::Wireframe)
 	{
 		DrawLine(v1, v2);
@@ -115,4 +127,9 @@ void Rasterizer::DrawTriangle(Vertex v1, Vertex v2, Vertex v3)
 X::Color Rasterizer::GetColor() const
 {
 	return mColor;
+}
+
+ShadeMode Rasterizer::GetShadeMode() const
+{
+	return mShadeMode;
 }

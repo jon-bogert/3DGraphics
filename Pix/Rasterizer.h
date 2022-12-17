@@ -33,6 +33,7 @@ public:
 	void DrawTriangle(Vertex v1, Vertex v2, Vertex v3);
 
 	X::Color GetColor() const;
+	ShadeMode GetShadeMode() const;
 
 private:
 
